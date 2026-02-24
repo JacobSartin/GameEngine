@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "mage",
+  "version": "0.1.0",
+  "builtin-baseline": "15e5f3820f0370f1ba7150853762cec0688cd396",
+  "dependencies": ["sdl2", "glew", "freetype", "glm", "spdlog", "stb"]
+}
