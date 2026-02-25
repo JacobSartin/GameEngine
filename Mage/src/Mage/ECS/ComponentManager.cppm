@@ -1,22 +1,28 @@
-#pragma once
+module;
 
-#include "../Core/Core.h"
-#include "ComponentVector.h"
-#include "Entity.h"
-#include "Mage/Core/Application.h"
+#include "Mage/Core/Api.h"
 #include "Mage/Core/Exception.h"
 #include "Mage/Core/ICopyDisable.h"
+#include "Mage/Core/Log.h"
+
+#include <cstddef>
 #include <cstdint>
 #include <typeindex>
 
-namespace Mage {
+export module Mage.ECS:ComponentManager;
 
+export import :ComponentVector;
+
+export namespace Mage {
+
+class Application;
+class EntityManager;
 class SystemManager;
 
 class MAGE_API ComponentManager : ICopyDisable {
   friend class Application;
-  friend class SystemManager;
   friend class EntityManager;
+  friend class SystemManager;
 
 public:
   ~ComponentManager();
@@ -44,7 +50,6 @@ public:
         ->get(entity.get_id());
   }
 
-  // Would copy component if it already exists, but allows construction in place
   template <typename T> void add_component(Entity &entity, T component) {
     LOG_E_DEBUG("Component %s added to entity %d", typeid(T).name(),
                 entity.get_id());
@@ -110,12 +115,5 @@ private:
 
   void entity_destroyed(Entity &entity);
 };
-// Unlike ComponentVector, ComponentManager IS marked MAGE_API.
-// This is because this is a regular class with member function templates.
-// This means this class exists in the DLL, but additional member function
-// template
-//  instantiations can be created for it in the client executable.
-// Doing it this way allows the Application object to "own" the ComponentManager
-//  as it does the other *Manager classes.
 
 } // namespace Mage

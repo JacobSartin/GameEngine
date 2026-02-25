@@ -1,15 +1,21 @@
-#pragma once
+module;
 
-#include "../Core/Core.h"
+#include "Mage/Core/Api.h"
 #include "Mage/Core/ICopyDisable.h"
+#include "Mage/Core/Log.h"
+
 #include <cstdint>
 
-namespace Mage {
+export module Mage.ECS:Entity;
+
+export namespace Mage {
+
+class EntityManager;
+
 class MAGE_API Entity : ICopyDisable {
   friend class EntityManager;
 
 public:
-  // no public constructor because entities are created by the EntityManager
   ~Entity() { LOG_E_DEBUG("Entity Destroyed; id: %d; type: %d", _id, _type); };
 
   uint64_t get_id() const { return _id; }
@@ -23,8 +29,10 @@ private:
       : _id(id), _type(type), _destroyed(false) {
     LOG_E_DEBUG("Entity Created; id: %d; type: %d", _id, _type);
   };
+
   const uint64_t _id;
   const uint_fast32_t _type;
   bool _destroyed;
 };
+
 } // namespace Mage

@@ -1,15 +1,20 @@
-#pragma once
+module;
 
-#include "../Core/Core.h"
-#include "Entity.h"
-#include "EntityList.h"
-#include "Mage/Core/Application.h"
+#include "Mage/Core/Api.h"
 #include "Mage/Core/ICopyDisable.h"
 
-namespace Mage {
+#include <cstdint>
 
-class SystemManager;
-class ComponentManager;
+export module Mage.ECS:EntityManager;
+
+export import :EntityList;
+export import :ComponentManager;
+export import :SystemManager;
+
+export namespace Mage {
+
+class Application;
+
 class MAGE_API EntityManager : ICopyDisable {
   friend class Application;
 
@@ -28,11 +33,9 @@ private:
   struct Impl;
   Impl *_impl;
 
-  // only accessible by Application
   EntityManager();
 
   void set_component_manager(ComponentManager &component_manager);
-
   void set_system_manager(SystemManager &system_manager);
 };
 

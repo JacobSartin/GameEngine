@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.h"
+#include "Api.h"
 
 namespace Mage {
 class MAGE_API Exception {

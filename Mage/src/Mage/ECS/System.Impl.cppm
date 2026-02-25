@@ -1,11 +1,18 @@
-#include "System.h"
+module;
+
+#include "Mage/Core/Log.h"
+
 #include <algorithm>
-/* TODO be smart about notifying systems of entity components and dont notify
- systems of components they dont care about. Maybe have a bitset of component
- types that each system cares about, and only notify systems if the component
-type matches one in the bitset?
-*/
+#include <vector>
+
+module Mage.ECS:System.Impl;
+
+import :EntityList;
+import :ComponentManager;
+import :System;
+
 namespace Mage {
+
 struct System::Impl {
   std::vector<Entity *> entities;
 };
@@ -27,7 +34,6 @@ bool System::has_entity(const Entity &entity) const {
 }
 
 void System::add_entity(Entity &entity) {
-  // only add if not already present
   if (std::find(_impl->entities.begin(), _impl->entities.end(), &entity) ==
       _impl->entities.end()) {
     _impl->entities.push_back(&entity);

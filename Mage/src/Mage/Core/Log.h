@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Core.h"
+#include "Api.h"
+#include <cstdint>
 
 // Define convenient logging macros for engine and application loggers for
 // warnings and errors.
@@ -27,7 +28,12 @@ namespace Mage {
 
 class MAGE_API Log final {
 public:
-  enum class Level { Debug = 0, Info = 1, Warning = 2, Error = 3 };
+  enum class Level : std::uint8_t {
+    Debug = 0,
+    Info = 1,
+    Warning = 2,
+    Error = 3
+  };
 
   static Log &get();
 
@@ -67,7 +73,7 @@ public:
 private:
   Log();
 
-  inline static Log *_instance = nullptr;
+  inline static Log *instance = nullptr;
 
   struct Impl;
   Impl *_impl = nullptr;

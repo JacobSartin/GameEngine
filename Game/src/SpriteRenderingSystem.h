@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Components.h"
-#include "Mage/Scene/ComponentManager.h"
 #include <Mage/Mage.h>
+
+import Mage.ECS;
 
 class SpriteRenderingSystem : public Mage::System {
 public:

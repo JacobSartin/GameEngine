@@ -99,10 +99,10 @@ Log::~Log() {
 }
 
 Log &Log::get() {
-  if (_instance == nullptr) {
-    _instance = new Log();
+  if (instance == nullptr) {
+    instance = new Log();
   }
-  return *_instance;
+  return *instance;
 }
 
 void Log::set_engine_log_level(Level lvl) {

@@ -1,20 +1,30 @@
-#include "SystemManager.h"
-#include "System.h"
-#include "SystemList.h"
+module;
+
+#include "Mage/Core/Log.h"
+
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <map>
 #include <mutex>
 #include <utility>
+#include <vector>
+
+module Mage.ECS:SystemManager.Impl;
+
+import :EntityList;
+import :ComponentManager;
+import :System;
+import :SystemList;
+import :SystemManager;
 
 namespace Mage {
+
 struct SystemManager::Impl {
   std::mutex sync_object;
-  ComponentManager *component_manager;
+  ComponentManager *component_manager = nullptr;
   std::map<size_t, uint_fast32_t> system_type_to_id_map;
-  // maps system IDs to the component IDs they care about
   std::map<uint_fast32_t, std::vector<uint_fast32_t>> system_to_component_map;
-  // maps system IDs to system pointers
   std::map<uint_fast32_t, System *> systems_map;
   std::vector<System *> systems;
   uint_fast32_t last_system_id = 0;
@@ -62,24 +72,19 @@ void SystemManager::register_system_internal(System &system, size_t type_idx) {
 
 void SystemManager::add_system_component(uint_fast32_t system_id,
                                          uint_fast32_t component_id) {
-  // for production code, check that system_id exists, also that component_id
-  // isn't already present
   _impl->system_to_component_map[system_id].push_back(component_id);
 }
 
 void SystemManager::notify_systems_of_entity_component_addition(
-    Entity &entity, const uint_fast32_t *component_ids,
-    size_t component_count) {
+    Entity &entity, const uint_fast32_t *component_ids, size_t component_count) {
   std::lock_guard<std::mutex> lock(_impl->sync_object);
 
   std::vector entity_components(component_ids, component_ids + component_count);
 
-  // Find any systems that care about these components
   for (const auto &s : _impl->system_to_component_map) {
     uint_fast32_t system_id = s.first;
     const auto &system_component_ids = s.second;
 
-    // Check if the entity has all components that the system cares about
     bool cares = std::all_of(
         system_component_ids.begin(), system_component_ids.end(),
         [&](uint_fast32_t cid) {
@@ -99,12 +104,11 @@ void SystemManager::notify_systems_of_entity_component_addition(
 void SystemManager::notify_systems_of_entity_component_removal(
     Entity &entity, const uint_fast32_t component_id) {
   std::lock_guard<std::mutex> lock(_impl->sync_object);
-  // Check each system to see if it cares about the removed component
+
   for (const auto &s : _impl->system_to_component_map) {
     uint_fast32_t system_id = s.first;
     const auto &system_component_ids = s.second;
 
-    // If the system cares about the removed component, remove the entity
     if (std::find(system_component_ids.begin(), system_component_ids.end(),
                   component_id) != system_component_ids.end()) {
       auto *system = _impl->systems_map[system_id];
@@ -124,4 +128,5 @@ void SystemManager::entity_destroyed(const Entity &entity) {
     }
   }
 }
+
 } // namespace Mage

@@ -29,7 +29,7 @@ target_sources( Mage
         BASE_DIRS "src"
         FILES
             ${PUBLIC_HEADERS}
-    PRIVATE
+    PUBLIC
         FILE_SET CXX_MODULES
         BASE_DIRS ${MODULES_PATH}
         FILES

@@ -2,17 +2,14 @@
 #include "../Renderer/Camera.h"
 #include "../Renderer/SpriteRenderer.h"
 #include "../Renderer/TextRenderer.h"
-#include "../Scene/ComponentManager.h"
-#include "../Scene/EntityManager.h"
-#include "../Scene/SystemList.h"
-#include "../Scene/SystemManager.h"
 #include "Log.h"
 #include "Mage/Core/Window.h"
 #include "Mage/Renderer/TextRenderer.h"
-#include "Mage/Scene/EntityManager.h"
 #include <SDL_events.h>
 #include <chrono>
 #include <memory>
+
+import Mage.ECS;
 
 namespace Mage {
 

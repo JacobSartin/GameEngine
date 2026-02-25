@@ -1,20 +1,24 @@
-#pragma once
+module;
 
-#include "../Core/Core.h"
-#include "ComponentManager.h"
-#include "Mage/Core/Application.h"
-#include "Mage/Core/Core.h"
+#include "Mage/Core/Api.h"
 #include "Mage/Core/Exception.h"
 #include "Mage/Core/ICopyDisable.h"
-#include "System.h"
+#include "Mage/Core/Log.h"
+
 #include <cstddef>
 #include <cstdint>
 #include <initializer_list>
 #include <typeindex>
 
-namespace Mage {
+export module Mage.ECS:SystemManager;
 
-class SystemList;
+export import :SystemList;
+export import :ComponentManager;
+
+export namespace Mage {
+
+class Application;
+class EntityManager;
 
 class MAGE_API SystemManager : ICopyDisable {
   friend class Application;
@@ -36,23 +40,12 @@ public:
 
     register_system_internal(system, type_idx);
 
-    // type_index should return a different number for each type
     auto system_id = get_system_id(type_idx);
 
-    // for each type T in Ts: record that component's id as being the id
-    // of a component this system cares about
-
-    // all of this trickery is just to call a function (add_system_component)
-    // for each type in Ts
     (void)std::initializer_list<int>{
         (add_system_component(system_id,
                               get_component_manager().get_component_id<Ts>()),
          0)...};
-
-    // fold expression alternative (C++17 and later)
-    // (add_system_component(system_id,
-    //                       get_component_manager().get_component_id<Ts>()),
-    //  ...);
   }
 
 private:
@@ -61,7 +54,6 @@ private:
 
   SystemManager();
 
-  // only used by SystemManager, but needs to be defined here for templates
   ComponentManager &get_component_manager() const;
   bool is_system_registered(const System &system) const;
   void register_system_internal(System &system, size_t type_idx);
@@ -69,11 +61,9 @@ private:
                             uint_fast32_t component_id);
 
   void entity_destroyed(const Entity &entity);
-
   void set_component_manager(ComponentManager &component_manager);
 
   SystemList get_all_systems() const;
-
   uint_fast32_t get_system_id(size_t type_idx) const;
 
   void notify_systems_of_entity_component_addition(
