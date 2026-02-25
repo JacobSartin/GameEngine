@@ -3,14 +3,13 @@
 #include "Core.h"
 #include <cstdint>
 
+import Mage.ECS;
+
 namespace Mage {
 
 class Window;
 class Camera;
 class EventManager;
-class EntityManager;
-class ComponentManager;
-class SystemManager;
 class TextRenderer;
 class SpriteRenderer;
 
