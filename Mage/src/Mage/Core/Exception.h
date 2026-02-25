@@ -1,10 +1,9 @@
 #pragma once
 
 #include "Core.h"
-#include "Mage/Core/ICopyDisable.h"
 
 namespace Mage {
-class MAGE_API Exception : ICopyDisable {
+class MAGE_API Exception {
 public:
   explicit Exception(const char *message);
 

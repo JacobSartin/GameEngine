@@ -38,7 +38,7 @@ EntityList::ConstIterator::operator*() const {
   return *ptr;
 }
 
-const EntityList::ConstIterator::pointer
+EntityList::ConstIterator::pointer
 EntityList::ConstIterator::operator->() const {
   return ptr;
 }

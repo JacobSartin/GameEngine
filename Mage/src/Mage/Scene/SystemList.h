@@ -57,7 +57,7 @@ public:
     ~ConstIterator();
 
     reference operator*() const;
-    const pointer operator->() const;
+    pointer operator->() const;
 
     ConstIterator &operator++();
     ConstIterator operator++(int);

@@ -61,7 +61,7 @@ SystemList::ConstIterator::operator*() const {
   return *_impl->ptr;
 }
 
-const SystemList::ConstIterator::pointer
+SystemList::ConstIterator::pointer
 SystemList::ConstIterator::operator->() const {
   return _impl->ptr;
 }

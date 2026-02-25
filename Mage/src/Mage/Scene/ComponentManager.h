@@ -22,7 +22,7 @@ public:
   ~ComponentManager();
 
   template <typename T> void register_component() {
-    LOG_E_INFO("Component '%s' registered", std::string(typeid(T).name()));
+    LOG_E_INFO("Component '%s' registered", typeid(T).name());
     auto component_type_index = std::type_index(typeid(T)).hash_code();
 
     uint_fast32_t component_id;
