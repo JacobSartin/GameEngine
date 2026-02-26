@@ -10,7 +10,7 @@ module;
 #include <utility>
 #include <vector>
 
-module Mage.ECS:ComponentManager.Impl;
+module Mage.ECS:ComponentManager.impl;
 
 import :EntityList;
 import :ComponentManager;

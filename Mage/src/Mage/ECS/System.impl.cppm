@@ -5,7 +5,7 @@ module;
 #include <algorithm>
 #include <vector>
 
-module Mage.ECS:System.Impl;
+module Mage.ECS:System.impl;
 
 import :EntityList;
 import :ComponentManager;

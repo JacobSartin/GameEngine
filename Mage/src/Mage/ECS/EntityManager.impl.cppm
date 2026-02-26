@@ -9,7 +9,7 @@ module;
 #include <mutex>
 #include <vector>
 
-module Mage.ECS:EntityManager.Impl;
+module Mage.ECS:EntityManager.impl;
 
 import :EntityList;
 import :ComponentManager;
