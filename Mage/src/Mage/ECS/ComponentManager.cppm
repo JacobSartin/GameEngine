@@ -1,5 +1,9 @@
 module;
 
+namespace Mage {
+class Application;
+}
+
 #include "Mage/Core/Api.h"
 #include "Mage/Core/Exception.h"
 #include "Mage/Core/ICopyDisable.h"
@@ -15,7 +19,6 @@ export import :ComponentVector;
 
 export namespace Mage {
 
-class Application;
 class EntityManager;
 class SystemManager;
 

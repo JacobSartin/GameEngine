@@ -1,5 +1,9 @@
 module;
 
+namespace Mage {
+class Application;
+}
+
 #include "Mage/Core/Api.h"
 #include "Mage/Core/ICopyDisable.h"
 
@@ -12,8 +16,6 @@ export import :ComponentManager;
 export import :SystemManager;
 
 export namespace Mage {
-
-class Application;
 
 class MAGE_API EntityManager : ICopyDisable {
   friend class Application;
