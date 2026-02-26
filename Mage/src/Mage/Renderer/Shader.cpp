@@ -1,4 +1,6 @@
 #include "Shader.h"
+#include <string>
+#include <sstream>
 
 namespace Mage {
 

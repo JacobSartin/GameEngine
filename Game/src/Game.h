@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Components.h"
 #include <memory>
 #pragma warning(disable : 4100)
 
@@ -8,18 +7,19 @@
 #include "DeathByYSystem.h"
 #include "DestructionNotificationSystem.h"
 #include "EnemySpawningSystem.h"
-#include "GravitySystem.h"
-#include "LifetimeSystem.h"
-#include "MovementSystem.h"
 #include "PlayerSystem.h"
-#include "SpriteRenderingSystem.h"
 #include <Mage/Mage.h>
 #include <random>
+
+class GravitySystem;
+class LifetimeSystem;
+class MovementSystem;
+class SpriteRenderingSystem;
 
 class Game final : public Mage::Application {
 public:
   Game();
-  ~Game() override = default;
+  ~Game() override;
 
 private:
   std::vector<std::unique_ptr<Mage::Sprite>> _sprites;

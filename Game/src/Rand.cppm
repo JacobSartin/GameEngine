@@ -1,5 +1,4 @@
-// ReSharper disable CppClangTidyClangDiagnosticUniqueObjectDuplication
-#pragma once
+module;
 
 #include <map>
 #include <mutex>
@@ -7,7 +6,9 @@
 #include <shared_mutex>
 #include <string>
 
-class Rand final {
+export module Game.Rand;
+
+export class Rand final {
 public:
   Rand() = delete;
 

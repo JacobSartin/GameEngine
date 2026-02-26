@@ -9,7 +9,7 @@ set(MODULES_PATH "src")
 file(GLOB_RECURSE MODULE_FILES CONFIGURE_DEPENDS
     "${MODULES_PATH}/*.cppm"
 )
-# PCH force-include breaks module global-module-fragment syntax, so skip it for all module files
+# Keep module sources explicit so CMake scans and compiles them correctly.
 foreach(module_file ${MODULE_FILES})
     set_source_files_properties(${module_file} PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
 endforeach()
@@ -65,5 +65,3 @@ set( SDL_SHARED OFF )
 set( SDL_STATIC ON )
 set( GLEW_USE_STATIC_LIBS ON )
 set( BUILD_SHARED_LIBS OFF ) # freetype
-
-target_precompile_headers( Mage PRIVATE "src/Mage/Core/pch.h" )

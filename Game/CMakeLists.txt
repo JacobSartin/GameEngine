@@ -6,11 +6,25 @@ endif()
 
 file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 
+set(MODULES_PATH "src")
+file(GLOB_RECURSE MODULE_FILES CONFIGURE_DEPENDS
+    "${MODULES_PATH}/*.cppm"
+)
+
+foreach(module_file ${MODULE_FILES})
+    set_source_files_properties(${module_file} PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
+endforeach()
+
 add_executable( "Game" ${EXECUTABLE_TYPE_WIN32} )
 
 target_sources( "Game"
     PRIVATE
         ${PROJECT_SOURCES}
+    PUBLIC
+        FILE_SET CXX_MODULES
+        BASE_DIRS ${MODULES_PATH}
+        FILES
+            ${MODULE_FILES}
 )
 
 set_property( TARGET "Game" PROPERTY LINKER_LANGUAGE CXX )

@@ -2,8 +2,8 @@
 #include "Mage/Core/Color.h"
 #include "Mage/Core/Exception.h"
 #include "Mage/Core/Log.h"
-#include "Mage/Core/pch.h"
 #include <cstdint>
+#include <string>
 
 namespace Mage {
 struct Sprite::Impl {
@@ -50,7 +50,7 @@ struct Sprite::Impl {
 };
 
 Sprite::Sprite(const Color &color) : _impl(new Impl()) {
-  LOG_E_INFO("Loading sprite...");
+  LOG_E_DEBUG("Loading sprite...");
 
   _impl->color = color;
 }
@@ -97,10 +97,10 @@ Sprite::Sprite(const char *sprite_image_file, uint_fast32_t frames,
 
 Sprite::~Sprite() {
   if (_impl->is_textured) {
-    LOG_E_INFO("Unloading sprite: %s", _impl->sprite_image_file.c_str());
+    LOG_E_DEBUG("Unloading sprite: %s", _impl->sprite_image_file.c_str());
     glDeleteTextures(1, &_impl->texture_id);
   } else {
-    LOG_E_INFO("Unloading sprite...");
+    LOG_E_DEBUG("Unloading sprite...");
   }
 
   glDeleteBuffers(1, &_impl->vbo);

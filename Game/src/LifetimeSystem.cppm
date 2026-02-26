@@ -1,9 +1,9 @@
-#pragma once
+export module Game.LifetimeSystem;
 
-#include "Components.h"
-#include <Mage/Mage.h>
+import Game.Components;
+import Mage.ECS;
 
-class LifetimeSystem : public Mage::System {
+export class LifetimeSystem : public Mage::System {
 public:
   void update(Mage::ComponentManager &component_manager,
               float delta_time) override {

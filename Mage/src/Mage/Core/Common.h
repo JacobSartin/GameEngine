@@ -1,30 +1,6 @@
 #pragma once
 
-#include <algorithm>
-#include <any>
-#include <array>
-#include <atomic>
-#include <cstdint>
-#include <functional>
-#include <iostream>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <set>
-#include <sstream>
-#include <string>
-#include <typeindex>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
-
 #pragma warning(push, 0)
-
-#include <spdlog/sinks/null_sink.h>
-#include <spdlog/sinks/rotating_file_sink.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/spdlog.h>
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>

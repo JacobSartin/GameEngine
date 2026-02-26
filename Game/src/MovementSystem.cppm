@@ -1,11 +1,13 @@
-#pragma once
+module;
 
-#include "Components.h"
-#include <Mage/Mage.h>
+#include <glm/glm.hpp>
 
+export module Game.MovementSystem;
+
+import Game.Components;
 import Mage.ECS;
 
-class MovementSystem : public Mage::System {
+export class MovementSystem : public Mage::System {
 public:
   void update(Mage::ComponentManager &component_manager,
               float delta_time) override {

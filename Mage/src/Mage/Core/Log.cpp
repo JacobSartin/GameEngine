@@ -1,6 +1,15 @@
 // ReSharper disable CppClangTidyClangDiagnosticFormatNonliteral
 #include "Log.h"
 
+#include <spdlog/sinks/null_sink.h>
+#include <spdlog/sinks/rotating_file_sink.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/spdlog.h>
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #define FORMAT_LOG_ENTRY(msg, formatted_msg)                                   \
   char formatted_msg[4096];                                                    \
   va_list ap;                                                                  \

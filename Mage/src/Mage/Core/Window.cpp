@@ -1,5 +1,6 @@
 #include "Window.h"
 #include "SDL2/SDL_syswm.h"
+#include <string>
 
 namespace Mage {
 

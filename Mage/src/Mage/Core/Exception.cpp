@@ -1,4 +1,5 @@
 #include "Exception.h"
+#include <string>
 
 namespace Mage {
 struct Exception::Impl final {

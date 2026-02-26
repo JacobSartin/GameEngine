@@ -1,6 +1,6 @@
-#pragma once
-#include "Core.h"
-namespace Mage {
+export module Mage.Events.EventEnums;
+
+export namespace Mage {
 
 enum class MouseButton {
   Left = 0x0001,

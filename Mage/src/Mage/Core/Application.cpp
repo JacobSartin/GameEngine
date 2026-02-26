@@ -10,6 +10,7 @@
 #include <memory>
 
 import Mage.ECS;
+import Mage.Events;
 
 namespace Mage {
 

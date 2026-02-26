@@ -1,6 +1,11 @@
 #include "Game.h"
-#include "Components.h"
-#include "Rand.h"
+
+import Game.Components;
+import Game.GravitySystem;
+import Game.LifetimeSystem;
+import Game.MovementSystem;
+import Game.Rand;
+import Game.SpriteRenderingSystem;
 
 Game::Game() : Mage::Application("Basic Game", false, 1024, 768, 1) {
   Mage::Log::get().set_engine_log_level(Mage::Log::Level::Info);
@@ -12,7 +17,13 @@ Game::Game() : Mage::Application("Basic Game", false, 1024, 768, 1) {
   get_component_manager()->register_component<LifetimeComponent>();
 
   _sprite_rendering_system =
-      std::make_unique<SpriteRenderingSystem>(get_sprite_renderer());
+      std::make_unique<SpriteRenderingSystem>([sprite_renderer = get_sprite_renderer()](
+          const SpriteComponent &sprite_component,
+          const Transform2DComponent &transform, float elapsed_time) {
+        sprite_renderer->render(*sprite_component.sprite, transform.translation,
+                                transform.scale, transform.rotation,
+                                elapsed_time);
+      });
   _gravity_system = std::make_unique<GravitySystem>();
   _movement_system = std::make_unique<MovementSystem>();
   _lifetime_system = std::make_unique<LifetimeSystem>();
@@ -69,3 +80,5 @@ Game::Game() : Mage::Application("Basic Game", false, 1024, 768, 1) {
                  });
   }
 }
+
+Game::~Game() = default;
