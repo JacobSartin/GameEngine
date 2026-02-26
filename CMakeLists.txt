@@ -21,3 +21,13 @@ endif()
 
 add_subdirectory( "Mage" )
 add_subdirectory( "Game" )
+
+if( WIN32 )
+    add_custom_target( normalize_compile_commands ALL
+        COMMAND ${CMAKE_COMMAND}
+            -DINPUT_FILE=${CMAKE_BINARY_DIR}/compile_commands.json
+            -P ${CMAKE_SOURCE_DIR}/cmake/NormalizeCompileCommands.cmake
+        COMMENT "Normalizing drive-letter casing in compile_commands.json for clangd"
+        VERBATIM
+    )
+endif()

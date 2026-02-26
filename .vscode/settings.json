@@ -11,5 +11,5 @@
     "--compile-commands-dir=${workspaceFolder}/out/build/x64-debug",
     "--experimental-modules-support"
   ],
-  "clangd.fallbackFlags": ["-std=c++23"]
+  "clangd.fallbackFlags": ["-std=c++20"]
 }
