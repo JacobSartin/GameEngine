@@ -1,6 +1,6 @@
 module;
 
-#include "../Core/Core.h"
+#include "Mage/Core/Core.h"
 #include "Mage/Core/ICopyDisable.h"
 
 export module Mage:Renderer.Camera;

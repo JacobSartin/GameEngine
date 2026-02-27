@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../Core/Core.h"
 #include "Font.h"
+#include "Mage/Core/Core.h"
 #include "Shader.h"
+
 
 namespace Mage {
 class TextRenderer {};
