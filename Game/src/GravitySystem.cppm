@@ -5,7 +5,7 @@ module;
 export module Game.GravitySystem;
 
 import Game.Components;
-import Mage.ECS;
+import Mage;
 
 export class GravitySystem : public Mage::System {
 public:

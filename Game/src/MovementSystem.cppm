@@ -5,7 +5,7 @@ module;
 export module Game.MovementSystem;
 
 import Game.Components;
-import Mage.ECS;
+import Mage;
 
 export class MovementSystem : public Mage::System {
 public:

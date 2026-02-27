@@ -10,13 +10,13 @@ module;
 #include <utility>
 #include <vector>
 
-module Mage.ECS:SystemManager.impl;
+module Mage:ECS.SystemManager.impl;
 
-import :EntityList;
-import :ComponentManager;
-import :System;
-import :SystemList;
-import :SystemManager;
+import :ECS.EntityList;
+import :ECS.ComponentManager;
+import :ECS.System;
+import :ECS.SystemList;
+import :ECS.SystemManager;
 
 namespace Mage {
 

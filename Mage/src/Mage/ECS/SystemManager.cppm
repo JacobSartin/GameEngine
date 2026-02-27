@@ -10,14 +10,10 @@ module;
 #include <initializer_list>
 #include <typeindex>
 
-export module Mage.ECS:SystemManager;
+export module Mage:ECS.SystemManager;
 
-export import :SystemList;
-export import :ComponentManager;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+export import :ECS.SystemList;
+export import :ECS.ComponentManager;
 
 export namespace Mage {
 

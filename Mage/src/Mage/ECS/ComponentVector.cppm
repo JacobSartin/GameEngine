@@ -11,9 +11,9 @@ module;
 #include <unordered_map>
 #include <vector>
 
-export module Mage.ECS:ComponentVector;
+export module Mage:ECS.ComponentVector;
 
-export import :EntityList;
+export import :ECS.EntityList;
 
 export namespace Mage {
 

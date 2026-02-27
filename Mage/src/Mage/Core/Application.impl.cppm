@@ -6,7 +6,9 @@ module;
 #include <chrono>
 #include <memory>
 
-module Mage.Core.Application;
+module Mage:Core.Application.impl;
+
+import :Core.Application;
 
 namespace Mage {
 

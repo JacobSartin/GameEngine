@@ -6,7 +6,7 @@ module;
 
 #include <cstdint>
 
-export module Mage.ECS:Entity;
+export module Mage:ECS.Entity;
 
 export namespace Mage {
 

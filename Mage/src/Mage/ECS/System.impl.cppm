@@ -5,11 +5,11 @@ module;
 #include <algorithm>
 #include <vector>
 
-module Mage.ECS:System.impl;
+module Mage:ECS.System.impl;
 
-import :EntityList;
-import :ComponentManager;
-import :System;
+import :ECS.EntityList;
+import :ECS.ComponentManager;
+import :ECS.System;
 
 namespace Mage {
 

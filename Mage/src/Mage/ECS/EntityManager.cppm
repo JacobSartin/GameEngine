@@ -5,15 +5,11 @@ module;
 
 #include <cstdint>
 
-export module Mage.ECS:EntityManager;
+export module Mage:ECS.EntityManager;
 
-export import :EntityList;
-export import :ComponentManager;
-export import :SystemManager;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+export import :ECS.EntityList;
+export import :ECS.ComponentManager;
+export import :ECS.SystemManager;
 
 export namespace Mage {
 

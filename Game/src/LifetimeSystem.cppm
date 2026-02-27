@@ -1,7 +1,7 @@
 export module Game.LifetimeSystem;
 
 import Game.Components;
-import Mage.ECS;
+import Mage;
 
 export class LifetimeSystem : public Mage::System {
 public:

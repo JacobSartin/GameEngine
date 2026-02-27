@@ -2,11 +2,7 @@ module;
 
 #include "Core.h"
 
-export module Mage.Core.Window;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+export module Mage:Core.Window;
 
 export namespace Mage {
     class MAGE_API Window  : ICopyDisable  // NOLINT(cppcoreguidelines-special-member-functions)

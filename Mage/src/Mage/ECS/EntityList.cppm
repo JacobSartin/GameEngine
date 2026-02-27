@@ -5,9 +5,9 @@ module;
 #include <cstddef>
 #include <iterator>
 
-export module Mage.ECS:EntityList;
+export module Mage:ECS.EntityList;
 
-export import :Entity;
+export import :ECS.Entity;
 
 export namespace Mage {
 

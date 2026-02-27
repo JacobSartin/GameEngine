@@ -4,7 +4,9 @@ module;
 #include "Core.h"
 #include <string>
 
-module Mage.Core.Window;
+module Mage:Core.Window.impl;
+
+import :Core.Window;
 
 namespace Mage {
 

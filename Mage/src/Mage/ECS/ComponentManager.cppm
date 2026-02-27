@@ -9,18 +9,11 @@ module;
 #include <cstdint>
 #include <typeindex>
 
-export module Mage.ECS:ComponentManager;
+export module Mage:ECS.ComponentManager;
 
-export import :ComponentVector;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+export import :ECS.ComponentVector;
 
 export namespace Mage {
-
-class EntityManager;
-class SystemManager;
 
 class MAGE_API ComponentManager : ICopyDisable {
   friend class Application;

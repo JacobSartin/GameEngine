@@ -6,11 +6,11 @@ module;
 
 export module Mage:Core.Application;
 
-import Mage.ECS;
-import Mage.Events;
-import Mage.Renderer.Camera;
-import Mage.Renderer.SpriteRenderer;
-import Mage.Core.Window;
+import :ECS;
+import :Events;
+import :Renderer.Camera;
+import :Renderer.SpriteRenderer;
+import :Core.Window;
 
 export namespace Mage {
 class MAGE_API Application : ICopyDisable {

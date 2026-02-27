@@ -9,12 +9,12 @@ module;
 #include <mutex>
 #include <vector>
 
-module Mage.ECS:EntityManager.impl;
+module Mage:ECS.EntityManager.impl;
 
-import :EntityList;
-import :ComponentManager;
-import :SystemManager;
-import :EntityManager;
+import :ECS.EntityList;
+import :ECS.ComponentManager;
+import :ECS.SystemManager;
+import :ECS.EntityManager;
 
 namespace Mage {
 

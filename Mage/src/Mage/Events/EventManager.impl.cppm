@@ -6,7 +6,9 @@ module;
 #include <typeinfo>
 #include <SDL.h>
 
-module Mage.Events.EventManager;
+module Mage:Events.EventManager.impl;
+
+import :Events.EventManager;
 
 namespace Mage {
 struct EventManager::Impl final {

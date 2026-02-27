@@ -1,10 +1,10 @@
-export module Mage.ECS;
+export module Mage:ECS;
 
-export import :System;
-export import :SystemList;
-export import :SystemManager;
-export import :ComponentVector;
-export import :ComponentManager;
-export import :Entity;
-export import :EntityList;
-export import :EntityManager;
+export import :ECS.System;
+export import :ECS.SystemList;
+export import :ECS.SystemManager;
+export import :ECS.ComponentVector;
+export import :ECS.ComponentManager;
+export import :ECS.Entity;
+export import :ECS.EntityList;
+export import :ECS.EntityManager;

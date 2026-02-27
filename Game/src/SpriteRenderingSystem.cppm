@@ -6,7 +6,7 @@ module;
 export module Game.SpriteRenderingSystem;
 
 import Game.Components;
-import Mage.ECS;
+import Mage;
 
 export class SpriteRenderingSystem : public Mage::System {
 public:

@@ -4,7 +4,9 @@ module;
 #include "Shader.h"
 #include "Sprite.h"
 
-module Mage.Renderer.SpriteRenderer;
+module Mage:Renderer.SpriteRenderer.impl;
+
+import :Renderer.SpriteRenderer;
 
 namespace Mage {
 

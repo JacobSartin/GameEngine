@@ -4,13 +4,9 @@ module;
 #include "Shader.h"
 #include "Sprite.h"
 
-export module Mage.Renderer.SpriteRenderer;
+export module Mage:Renderer.SpriteRenderer;
 
-import Mage.Renderer.Camera;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+import :Renderer.Camera;
 
 export namespace Mage {
 

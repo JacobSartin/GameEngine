@@ -3,14 +3,12 @@ module;
 #include "Mage/Core/Api.h"
 #include "Mage/Core/ICopyDisable.h"
 
-export module Mage.ECS:System;
+export module Mage:ECS.System;
 
-export import :EntityList;
-export import :ComponentManager;
+export import :ECS.EntityList;
+export import :ECS.ComponentManager;
 
 export namespace Mage {
-
-class SystemManager;
 
 class MAGE_API System : ICopyDisable {
   friend class SystemManager;

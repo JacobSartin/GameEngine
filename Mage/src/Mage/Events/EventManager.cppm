@@ -4,15 +4,11 @@ module;
 #include "Mage/Core/ICopyDisable.h"
 #include <cstdint>
 
-export module Mage.Events.EventManager;
+export module Mage:Events.EventManager;
 
 import Mage.Events.EventListenerBase;
 import Mage.Events.EventEnums;
-import Mage.Core.Window;
-
-namespace Mage {
-extern "C++" class Application; 
-}
+import :Core.Window;
 
 export namespace Mage {
 

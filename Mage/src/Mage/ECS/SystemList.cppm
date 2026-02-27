@@ -5,13 +5,11 @@ module;
 #include <cstddef>
 #include <iterator>
 
-export module Mage.ECS:SystemList;
+export module Mage:ECS.SystemList;
 
-export import :System;
+export import :ECS.System;
 
 export namespace Mage {
-
-class SystemManager;
 
 class MAGE_API SystemList {
   friend class SystemManager;
