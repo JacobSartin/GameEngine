@@ -6,11 +6,7 @@
   "cmake.exportCompileCommandsFile": true,
   "clangd.arguments": [
     "--compile-commands-dir=${workspaceFolder}/out/build/x64-debug",
-    "--experimental-modules-support",
-    "--log=verbose",
-    "-j=1",
-    "--background-index=0",
-    "--clang-tidy=0"
+    "--experimental-modules-support"
   ],
   "clangd.fallbackFlags": ["-std=c++20"]
 }
