@@ -38,7 +38,7 @@ struct Application::Impl final {
         spriteRenderer(
             std::unique_ptr<SpriteRenderer>(new SpriteRenderer(*camera))) {
 
-              if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) !=
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) !=
         0) {
       throw Exception(
           (std::string("Failed to initialize SDL: ") + SDL_GetError()).c_str());
@@ -121,10 +121,7 @@ void Application::run() {
     // update entity manager
     _impl->entityManager->update();
     // poll events
-    SDL_Event event;
-    while (SDL_PollEvent(&event) != 0) {
-      ;
-    }
+    _impl->eventManager->poll_events();
 
     // clear window
     _impl->window->clear_window();

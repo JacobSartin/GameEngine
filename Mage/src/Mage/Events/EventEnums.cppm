@@ -10,18 +10,6 @@ enum class MouseButton {
   Extra2 = 0x0010
 };
 
-enum class JoystickHatPosition {
-  Centered,
-  Up,
-  Right,
-  Down,
-  Left,
-  RightUp,
-  RightDown,
-  LeftUp,
-  LeftDown
-};
-
 enum class ControllerSensor {
   Unknown,
   Accelerometer,
