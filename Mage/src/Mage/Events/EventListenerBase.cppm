@@ -1,7 +1,5 @@
 module;
 
-#pragma once
-
 #include "Mage/Core/Api.h"
 #include "Mage/Core/ICopyDisable.h"
 
