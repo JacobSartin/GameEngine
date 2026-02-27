@@ -1,4 +1,6 @@
-#include "Game.h"
+#include <Mage/Mage.h>
+
+import Game;
 
 namespace {
 int go() {

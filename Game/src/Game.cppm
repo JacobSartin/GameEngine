@@ -1,25 +1,25 @@
-#pragma once
+module;
 
 #include <memory>
+#include <vector>
 #pragma warning(disable : 4100)
-
-#include "CollisionSystem.h"
-#include "DeathByYSystem.h"
-#include "DestructionNotificationSystem.h"
-#include "EnemySpawningSystem.h"
-#include "PlayerSystem.h"
 #include <Mage/Mage.h>
-#include <random>
 
-class GravitySystem;
-class LifetimeSystem;
-class MovementSystem;
-class SpriteRenderingSystem;
+export module Game;
 
-class Game final : public Mage::Application {
+import Mage;
+import Game.GravitySystem;
+import Game.LifetimeSystem;
+import Game.MovementSystem;
+import Game.SpriteRenderingSystem;
+
+export class Game final : public Mage::Application,
+                          Mage::OnAppClosingEventListener {
 public:
   Game();
   ~Game() override;
+
+  void on_app_closing() override;
 
 private:
   std::vector<std::unique_ptr<Mage::Sprite>> _sprites;

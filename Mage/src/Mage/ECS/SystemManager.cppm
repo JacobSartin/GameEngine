@@ -1,9 +1,5 @@
 module;
 
-namespace Mage {
-class Application;
-}
-
 #include "Mage/Core/Api.h"
 #include "Mage/Core/Exception.h"
 #include "Mage/Core/ICopyDisable.h"
@@ -18,6 +14,10 @@ export module Mage.ECS:SystemManager;
 
 export import :SystemList;
 export import :ComponentManager;
+
+namespace Mage {
+extern "C++" class Application; 
+}
 
 export namespace Mage {
 

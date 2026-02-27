@@ -1,16 +1,12 @@
-#include "Application.h"
-#include "../Renderer/Camera.h"
-#include "../Renderer/SpriteRenderer.h"
-#include "../Renderer/TextRenderer.h"
-#include "Log.h"
-#include "Mage/Core/Window.h"
+module;
+
 #include "Mage/Renderer/TextRenderer.h"
+#include "Log.h"
 #include <SDL_events.h>
 #include <chrono>
 #include <memory>
 
-import Mage.ECS;
-import Mage.Events;
+module Mage.Core.Application;
 
 namespace Mage {
 
@@ -31,7 +27,7 @@ struct Application::Impl final {
       : window(std::unique_ptr<Window>(
             new Window(title, fullscreen, w, h, swap_interval))),
         camera(std::unique_ptr<Camera>(new Camera())),
-        eventManager(std::unique_ptr<EventManager>(new EventManager())),
+        eventManager(std::unique_ptr<EventManager>(new EventManager(*window))),
         entityManager(std::unique_ptr<EntityManager>(new EntityManager())),
         componentManager(
             std::unique_ptr<ComponentManager>(new ComponentManager())),
@@ -40,6 +36,12 @@ struct Application::Impl final {
         spriteRenderer(
             std::unique_ptr<SpriteRenderer>(new SpriteRenderer(*camera))) {
 
+              if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) !=
+        0) {
+      throw Exception(
+          (std::string("Failed to initialize SDL: ") + SDL_GetError()).c_str());
+    }
+    
     entityManager->set_component_manager(*componentManager);
     entityManager->set_system_manager(*systemManager);
 

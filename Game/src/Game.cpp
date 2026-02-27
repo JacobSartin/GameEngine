@@ -1,23 +1,25 @@
-#include "Game.h"
+module;
+
+#include <Mage/Mage.h>
+#include <memory>
+
+module Game;
 
 import Game.Components;
-import Game.GravitySystem;
-import Game.LifetimeSystem;
-import Game.MovementSystem;
 import Game.Rand;
-import Game.SpriteRenderingSystem;
 
 Game::Game() : Mage::Application("Basic Game", false, 1024, 768, 1) {
   Mage::Log::get().set_engine_log_level(Mage::Log::Level::Info);
 
+  get_event_manager()->add_on_app_closing_event_listener(this);
   get_component_manager()->register_component<Transform2DComponent>();
   get_component_manager()->register_component<RigidBody2DComponent>();
   get_component_manager()->register_component<GravityComponent>();
   get_component_manager()->register_component<SpriteComponent>();
   get_component_manager()->register_component<LifetimeComponent>();
 
-  _sprite_rendering_system =
-      std::make_unique<SpriteRenderingSystem>([sprite_renderer = get_sprite_renderer()](
+  _sprite_rendering_system = std::make_unique<SpriteRenderingSystem>(
+      [sprite_renderer = get_sprite_renderer()](
           const SpriteComponent &sprite_component,
           const Transform2DComponent &transform, float elapsed_time) {
         sprite_renderer->render(*sprite_component.sprite, transform.translation,
@@ -82,3 +84,5 @@ Game::Game() : Mage::Application("Basic Game", false, 1024, 768, 1) {
 }
 
 Game::~Game() = default;
+
+void Game::on_app_closing() { close(); }

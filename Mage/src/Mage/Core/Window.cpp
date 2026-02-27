@@ -1,6 +1,10 @@
-#include "Window.h"
+module;
+
 #include "SDL2/SDL_syswm.h"
+#include "Core.h"
 #include <string>
+
+module Mage.Core.Window;
 
 namespace Mage {
 

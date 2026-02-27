@@ -1,4 +1,10 @@
-#include "SpriteRenderer.h"
+module;
+
+#include "Mage/Core/Core.h"
+#include "Shader.h"
+#include "Sprite.h"
+
+module Mage.Renderer.SpriteRenderer;
 
 namespace Mage {
 

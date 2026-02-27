@@ -1,19 +1,18 @@
-#pragma once
+module;
 
 #include "Core.h"
 #include <cstdint>
+#include "Mage/Renderer/TextRenderer.h"
 
-namespace Mage {
+export module Mage:Core.Application;
 
-class Window;
-class Camera;
-class EntityManager;
-class ComponentManager;
-class SystemManager;
-class EventManager;
-class TextRenderer;
-class SpriteRenderer;
+import Mage.ECS;
+import Mage.Events;
+import Mage.Renderer.Camera;
+import Mage.Renderer.SpriteRenderer;
+import Mage.Core.Window;
 
+export namespace Mage {
 class MAGE_API Application : ICopyDisable {
 public:
   explicit Application(const char *title, bool fullscreen = true,

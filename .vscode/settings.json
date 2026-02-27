@@ -3,13 +3,14 @@
   "cmake.debugConfig": {
     "console": "integratedTerminal"
   },
-  "cmake.configureSettings": {
-    "CMAKE_EXPORT_COMPILE_COMMANDS": "1"
-  },
   "cmake.exportCompileCommandsFile": true,
   "clangd.arguments": [
     "--compile-commands-dir=${workspaceFolder}/out/build/x64-debug",
-    "--experimental-modules-support"
+    "--experimental-modules-support",
+    "--log=verbose",
+    "-j=1",
+    "--background-index=0",
+    "--clang-tidy=0"
   ],
   "clangd.fallbackFlags": ["-std=c++20"]
 }

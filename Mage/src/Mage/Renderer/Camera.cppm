@@ -1,10 +1,15 @@
-#pragma once
+module;
 
 #include "../Core/Core.h"
-#include "Mage/Core/Application.h"
 #include "Mage/Core/ICopyDisable.h"
 
+export module Mage.Renderer.Camera;
+
 namespace Mage {
+extern "C++" class Application; 
+}
+
+export namespace Mage {
 class MAGE_API Camera : ICopyDisable {
   friend class Application;
 

@@ -1,14 +1,17 @@
-#pragma once
+module;
 
 #include "Core.h"
 
+export module Mage.Core.Window;
+
 namespace Mage {
+extern "C++" class Application; 
+}
 
-    class Color ;
-
+export namespace Mage {
     class MAGE_API Window  : ICopyDisable  // NOLINT(cppcoreguidelines-special-member-functions)
     {
-        friend class Application ;
+        friend class Application;
 
     public:
         ~Window() ;

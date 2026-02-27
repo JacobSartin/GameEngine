@@ -1,3 +1,3 @@
 export module Mage.Events;
 
-export import :EventManager;
+export import Mage.Events.EventManager;

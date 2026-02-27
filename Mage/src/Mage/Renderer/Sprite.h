@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Core/Core.h"
+#include "Mage/Core/Core.h"
 #include "Mage/Core/ICopyDisable.h"
 
 namespace Mage {
